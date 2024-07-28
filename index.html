@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUDS</title>
+    <link rel="stylesheet" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/Style.css" />
+  </head>
+  <body>
+    <div class="container crud">
+      <div class="head text-center text-uppercase">
+        <h2>CRUDS</h2>
+        <p>Product Managment System</p>
+      </div>
+      <div class="inpusts">
+        <div class="form-floating mb-3">
+          <input
+          oninput="vaildateInpust(this)"
+            type="text"
+            class="form-control"
+            id="title"
+            placeholder="Title"
+          />
+          <div class="alert alert-danger py-1 mt-2 d-none">
+            <small>Produst name must start with uppercase ...</small>
+          </div>
+          <label for="title"  class="text-secondary">Title</label>
+
+        </div>
+        <div class="price d-flex align-content-center">
+          <div class="form-floating mb-3 pe-2">
+            <input
+              onkeyup="getTotal()"
+              type="number"
+              class="form-control"
+              id="price"
+              placeholder="price"
+            />
+            <label for="price" class="text-secondary">Price</label>
+          </div>
+          <div class="form-floating mb-3 pe-2">
+            <input
+              onkeyup="getTotal()"
+              type="number"
+              class="form-control"
+              id="taxes"
+              placeholder="taxes"
+            />
+            <label for="taxes" class="text-secondary">Taxes</label>
+          </div>
+          <div class="form-floating mb-3 pe-2">
+            <input
+              onkeyup="getTotal()"
+              type="number"
+              class="form-control"
+              id="ads"
+              placeholder="ads"
+            />
+            <label for="ads" class="text-secondary">Ads</label>
+          </div>
+          <div class="form-floating mb-3 pe-2">
+            <input
+              onkeyup="getTotal()"
+              type="number"
+              class="form-control"
+              id="discount"
+              placeholder="discount"
+            />
+            <label for="discount" class="text-secondary">Discount</label>
+          </div>
+          <div class="text-center">
+            <label id="total" class="text-white p-3"></label>
+          </div>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            oninput="vaildateInpust(this)"
+            type="number"
+            class="form-control"
+            id="count"
+            placeholder="count"
+          />
+          <div class="alert alert-danger py-1 mt-2 d-none">
+            <small> Number Must Between 1-99 ...</small>
+          </div>
+          <label for="count" class="text-secondary">Count</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            oninput="vaildateInpust(this)"
+            type="text"
+            class="form-control"
+            id="category"
+            placeholder="category"
+          />
+          <div class="alert alert-danger py-1 mt-2 d-none">
+            <small>Category name must start with uppercase ...</small>
+          </div>
+          <label for="category" class="text-secondary">Category</label>
+        </div>
+        <button id="submit">Create</button>
+      </div>
+
+      <div class="outputs">
+        <div class="searchBlock"></div>
+        <div class="form-floating mb-3 mt-3">
+          <input
+            type="search"
+            class="form-control"
+            id="search"
+            placeholder="search"
+            onkeyup="searchData(this.value)"
+          />
+          <label for="search" class="text-secondary">Search</label>
+        </div>
+        <div class="btnSearch">
+          <button onclick="getsearchTitle(this.id)" id="searchTitle">
+            Search Bt Title
+          </button>
+          <button onclick="getsearchTitle(this.id)" id="searchCategory">
+            Search Bt Category
+          </button>
+        </div>
+
+        <div id="deleteAll"></div>
+        <table>
+          <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Taxes</th>
+            <th>Ads</th>
+            <th>Discount</th>
+            <th>Total</th>
+            <th>Category</th>
+            <th>Update</th>
+            <th>Delete</th>
+          </tr>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+    </div>
+    
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="JS/index.js"></script>
+  </body>
+</html>
